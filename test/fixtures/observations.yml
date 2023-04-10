@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1.5
+  timestamp: 2023-04-09 01:50:36
+  metric_id: one
+
+two:
+  value: 1.5
+  timestamp: 2023-04-09 01:50:36
+  metric_id: two

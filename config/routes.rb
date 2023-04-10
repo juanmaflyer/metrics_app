@@ -3,4 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  namespace :api do
+    namespace :v1 do
+      root "metrics#index"
+      get "/metrics", to: "metrics#index"
+      get "/time_series", to: "time_series#index"
+      get "/time_series/averages", to: "time_series#averages"
+      post "/time_series", to: "time_series#create"
+    end
+  end
 end
