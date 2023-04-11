@@ -1,12 +1,35 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
+<h1 class="text-3xl font-bold underline place-self-center text-center m-10">
+  Factorial Metrics Exercise
 </h1>
 
-<h1>Factorial Metrics</h1>
+<section class="m-5">
+  <form>
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Metric</span>
+      </label>
+      <select (change)="onSelectedMetricChange($event)" class="select select-bordered w-full max-w-xs mb-5">
+        <option disabled selected>-- Select a metric --</option>
+        <option *ngFor="let metric of metricsData.data" [value]="metric.id">
+          {{ metric.name }}
+        </option>
+      </select>
+    </div>
 
-<p>Ejercicio que muestra metricas</p>
+    <div *ngIf="selectedMetric" class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Value</span>
+      </label>
+      <input [(ngModel)]="currentValue" name="value" type="text" placeholder="Set a value..." class="input input-bordered max-w-xs" />
+    </div>
+    <button *ngIf="selectedMetric" (click)="addDataPoint()" class="btn btn-primary mt-5">
+      Add
+    </button>
+  </form>
+</section>
 
 <highcharts-chart #chart
+  *ngIf="selectedMetric"
   [Highcharts]="Highcharts"
   [options]="chartOptions"
   [callbackFunction]="chartCallback"

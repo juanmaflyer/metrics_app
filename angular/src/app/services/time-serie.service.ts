@@ -13,4 +13,8 @@ export class TimeSerieService {
   getTimeSeries(metricId: number) {
     return this.http.get(this.metricsUrl, { params: { metric_id: metricId } });
   }
+
+  addDataPoint(metricId: number, value: number) {
+    return this.http.post(this.metricsUrl, { metric_id: metricId, value: value });
+  }
 }
