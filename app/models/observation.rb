@@ -1,3 +1,6 @@
 class Observation < ApplicationRecord
-  belongs_to :metric_id
+  validates :value, presence: true
+  validates :metric_id, presence: true
+
+  belongs_to :metric
 end
