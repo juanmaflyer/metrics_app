@@ -1,24 +1,17 @@
-# README
+# Requisitos y pasos para correr el proyecto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requisitos
 
-Things you may want to cover:
+* Ruby (3.1.2)
+* Node (V19.8.1)
+* PostgreSQL
 
-* Ruby version
+## Pasos
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Configurar PostgreSQL (crear un usuario y actualizar el archivo `config/database.yml` para que use ese usuario)
+- `bundle install`
+- En el directorio *angular* ejecutar `npm install`
+- rails db:setup (recrea la DB, ejecuta migraciones y correr los seeds)
+- rails s
+- En el directorio *angular* ejecutar `ng serve`
+- Navegar a `localhost:4200`
